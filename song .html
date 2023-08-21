@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    /* Example of using media queries for responsiveness */
+@media (max-width: 768px) {
+  .audio-container {
+    /* Adjust styles for smaller screens */
+  }
+
+  /* Other responsive adjustments */
+}
+
+
+    .audio-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .audio-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .audio-controls button {
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #playButton {
+      background-color: #28a745;
+      animation: colorChange 2s infinite;
+    }
+
+    #pauseButton {
+      background-color: #007bff;
+      animation: colorChange 2s infinite reverse;
+    }
+
+    #stopButton {
+      background-color: #dc3545;
+      animation: colorChange 2s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0%, 100% {
+        background-color: #28a745;
+      }
+      33% {
+        background-color: #007bff;
+      }
+      66% {
+        background-color: #dc3545;
+      }
+    }
+
+    .audio-controls button:hover {
+      background-color: #0056b3;
+    }
+#audioPlayer{
+  /*display: none ;*/
+  opacity: 0;
+
+}
+    .song-info {
+      text-align: center;
+      margin-top: 20px;
+      animation: bounceIn 1s ease-out;
+    }
+
+    .song-info img {
+      max-width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .song-info img:hover {
+      transform: scale(1.1);
+    }
+
+    .download-section,
+    .like-share-section {
+      margin-top: 20px;
+    }
+
+    .download-button,
+    .like-button,
+    .share-button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    .download-button:hover,
+    .like-button:hover,
+    .share-button:hover {
+      background-color: #218838;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <title>Audio Player</title>
+</head>
+<body>
+  <div class="audio-container">
+    <div class="song-info">
+      <img id="songImage" src="IND copy.png"  alt="Song Image">
+      <h3 id="songName"> Halki Si barsaat</h3>
+    </div>
+    <h2> surbajao</h2>
+    
+    <audio id="audioPlayer" controls> <source src=" Halki Si barsaat.mp3" type="audio/mpeg"></audio>
+    <div class="audio-controls">
+      <button id="playButton"><i class="fas fa-play"></i></button>
+      <button id="pauseButton"><i class="fas fa-pause"></i></button>
+      <button id="stopButton"><i class="fas  fa-download"></i></button> 
+      <!-- <a id="downloadLink" class="download-button" download><i class="fas fa-download"> </i></a> -->
+    </div>
+  
+    <div class="like-share-section">
+      <button class="like-button"><i class="fas fa-thumbs-up"></i> Like</button>
+      <button class="share-button"><i class="fas fa-share"></i> Share</button>
+    </div>
+  </div>
+  <!--******************************* card one  end****************************************************************** -->
+  <div class="audio-container">
+    <div class="song-info">
+      <img id="songImage" src="IND copy.png"  alt="Song Image">
+      <h3 id="songName"> Halki Si barsaat</h3>
+    </div>
+    <h2> surbajao</h2>
+    
+    <audio id="audioPlayer" controls> <source src=" Halki Si barsaat.mp3" type="audio/mpeg"></audio>
+    <div class="audio-controls">
+      <button id="playButton"><i class="fas fa-play"></i></button>
+      <button id="pauseButton"><i class="fas fa-pause"></i></button>
+      <button id="stopButton"><i class="fas  fa-download"></i></button> 
+      <!-- <a id="downloadLink" class="download-button" download><i class="fas fa-download"> </i></a> -->
+    </div>
+  
+    <div class="like-share-section">
+      <button class="like-button"><i class="fas fa-thumbs-up"></i> Like</button>
+      <button class="share-button"><i class="fas fa-share"></i> Share</button>
+    </div>
+  </div>
+  
+  
+  <script>
+    const audioPlayer = document.getElementById("audioPlayer");
+    const playButton = document.getElementById("playButton");
+    const pauseButton = document.getElementById("pauseButton");
+    const stopButton = document.getElementById("stopButton");
+    const songImage = document.getElementById("songImage");
+    const songName = document.getElementById("songName");
+    const downloadLink = document.getElementById("downloadLink");
+    const likeButton = document.querySelector(".like-button");
+    const shareButton = document.querySelector(".share-button");
+
+    playButton.addEventListener("click", () => {
+      audioPlayer.play();
+    });
+
+    pauseButton.addEventListener("click", () => {
+      audioPlayer.pause();
+    });
+
+    stopButton.addEventListener("click", () => {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+    });
+
+    // Update download link when the song changes
+    audioPlayer.addEventListener("loadstart", () => {
+      const selectedSong = audioPlayer.src;
+      downloadLink.href = selectedSong;
+    });
+
+    likeButton.addEventListener("click", () => {
+      // Perform like action (add your logic here)
+      alert("Liked!");
+    });
+
+    shareButton.addEventListener("click", () => {
+      // Perform share action (add your logic here)
+      alert("Shared!");
+    });
+  </script>
+
+  
+</body>
+</html>
